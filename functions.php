@@ -54,6 +54,17 @@ function wpadminkit_scripts() {
 add_action('wp_enqueue_scripts', 'wpadminkit_scripts');
 
 /**
+ * Custom template tags for this theme
+ */
+require get_template_directory() . '/inc/template-tags.php';
+
+/**
+ * Custom menu for this theme
+ */
+require get_template_directory() . '/inc/wp-navmenu-walker.php';
+require get_template_directory() . '/inc/wp-navmenu-custom.php';
+
+/**
  * Implement TML Custom.
  */
 if (class_exists('Theme_My_Login_Form')) {
@@ -66,3 +77,23 @@ if (class_exists('Theme_My_Login_Form')) {
 if (function_exists('v_forcelogin')) {
 	require get_template_directory() . '/inc/force-login.php';
 }
+
+/**
+ * Hide Admin Bar when user not admin
+ */
+add_filter('show_admin_bar', function ($show) {
+	if (!current_user_can('administrator')) {
+		return false;
+	}
+	return $show;
+});
+
+/**
+ * Disable access to wp-admin
+ */
+add_action('admin_init', function () {
+	if (is_admin() && !current_user_can('administrator') && !(defined('DOING_AJAX') && DOING_AJAX)) {
+		wp_safe_redirect(home_url());
+		exit;
+	}
+});

@@ -10,7 +10,7 @@
                     <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-bs-toggle="dropdown">
                         <i class="align-middle" data-feather="user"></i>
                     </a>
-                    <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown"><span class="text-dark">Nama Kamu</span></a>
+                    <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown"><span class="text-dark"><?php wpak_get_username(); ?></span></a>
                     <div class="dropdown-menu dropdown-menu-end">
                         <a class="dropdown-item" href="<?php echo esc_url(wp_logout_url()); ?>">Log out</a>
                     </div>
