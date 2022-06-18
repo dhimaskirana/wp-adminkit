@@ -74,9 +74,7 @@ if (class_exists('Theme_My_Login_Form')) {
 /**
  * Implement Force Login Exception List.
  */
-if (function_exists('v_forcelogin')) {
-	require get_template_directory() . '/inc/force-login.php';
-}
+require get_template_directory() . '/inc/force-login.php';
 
 /**
  * Hide Admin Bar when user not admin
