@@ -72,11 +72,6 @@ if (class_exists('Theme_My_Login_Form')) {
 }
 
 /**
- * Implement Force Login Exception List.
- */
-require get_template_directory() . '/inc/force-login.php';
-
-/**
  * Hide Admin Bar when user not admin
  */
 add_filter('show_admin_bar', function ($show) {
