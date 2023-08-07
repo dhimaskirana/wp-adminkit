@@ -11,7 +11,7 @@
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
     <div class="wrapper">
-        <?php get_template_part('sidebar'); ?>
+        <?php get_template_part('template-part/sidebar'); ?>
 
         <div class="main">
-            <?php get_template_part('navbar'); ?>
+            <?php get_template_part('template-part/navbar'); ?>
